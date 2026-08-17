@@ -1,0 +1,858 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>A Nova Frequência | Bendita Conexão</title>
+<meta name="description" content="Reprograme sua mente na causa raiz, rompa padrões repetitivos e liberte-se do que não te pertence. Mais de 20 exercícios guiados de reprogramação mental e cura sistêmica.">
+<meta name="theme-color" content="#150620">
+<meta property="og:title" content="A Nova Frequência — Reprogramação mental e cura sistêmica">
+<meta property="og:description" content="Descubra o método capaz de quebrar padrões inconscientes em poucos dias.">
+<meta property="og:image" content="assets/hero.webp">
+<link rel="icon" href="assets/logo.webp">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+/* ============================================================
+   BENDITA CONEXÃO · NOVA FREQUÊNCIA
+   Paleta da marca: violeta profundo + lilás + ouro
+   ============================================================ */
+:root{
+  --roxo-void:#0d0416;
+  --roxo-900:#150620;
+  --roxo-800:#1e0b2f;
+  --roxo-700:#2b1142;
+  --roxo-600:#662574;   /* marca */
+  --lilas:#cc96e1;      /* marca */
+  --lilas-claro:#ecd7f7;
+  --ouro:#e6c273;
+  --ouro-claro:#f7e3ae;
+  --ouro-escuro:#b0863a;
+  --creme:#f6efe6;
+  --texto:#efe4f5;
+  --texto-suave:#c9b3d8;
+
+  --fonte-display:"Cormorant Garamond",Georgia,"Times New Roman",serif;
+  --fonte-texto:"Jost",-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;
+
+  --max:1140px;
+  --raio:22px;
+  --borda-suave:1px solid rgba(204,150,225,.22);
+  --sombra-alta:0 30px 80px -30px rgba(0,0,0,.85);
+  --brilho-ouro:0 0 30px rgba(230,194,115,.35);
+}
+
+*,*::before,*::after{box-sizing:border-box}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{
+  margin:0;
+  background:var(--roxo-void);
+  color:var(--texto);
+  font-family:var(--fonte-texto);
+  font-weight:300;
+  font-size:clamp(16px,1.05vw + 13px,18px);
+  line-height:1.7;
+  overflow-x:hidden;
+  -webkit-font-smoothing:antialiased;
+}
+img{max-width:100%;display:block;height:auto}
+a{color:inherit;text-decoration:none}
+h1,h2,h3{font-family:var(--fonte-display);font-weight:600;line-height:1.12;margin:0;letter-spacing:.01em}
+p{margin:0 0 1em}
+p:last-child{margin-bottom:0}
+
+/* ---------- Fundo mágico global ---------- */
+.ceu{position:fixed;inset:0;z-index:0;pointer-events:none}
+.ceu canvas{width:100%;height:100%;display:block;opacity:.55}
+.aurora{position:fixed;inset:0;z-index:0;pointer-events:none;overflow:hidden}
+.aurora span{
+  position:absolute;border-radius:50%;filter:blur(90px);opacity:.32;
+  animation:flutuar 24s ease-in-out infinite;
+}
+.aurora span:nth-child(1){width:52vw;height:52vw;left:-14vw;top:-8vw;background:radial-gradient(circle,#7d2f9c,transparent 68%)}
+.aurora span:nth-child(2){width:44vw;height:44vw;right:-12vw;top:28vh;background:radial-gradient(circle,#4a1d78,transparent 68%);animation-delay:-8s}
+.aurora span:nth-child(3){width:40vw;height:40vw;left:18vw;bottom:-10vw;background:radial-gradient(circle,#a06a2c,transparent 70%);opacity:.18;animation-delay:-15s}
+@keyframes flutuar{0%,100%{transform:translate3d(0,0,0) scale(1)}50%{transform:translate3d(3vw,-4vh,0) scale(1.12)}}
+
+.conteudo{position:relative;z-index:1}
+
+/* ---------- Utilitários ---------- */
+.wrap{width:min(var(--max),92vw);margin-inline:auto}
+.wrap-estreito{width:min(820px,92vw);margin-inline:auto}
+section{padding:clamp(64px,9vw,120px) 0;position:relative}
+.centro{text-align:center}
+
+.olho{
+  display:inline-flex;align-items:center;gap:.6em;
+  font-size:.72rem;letter-spacing:.32em;text-transform:uppercase;font-weight:500;
+  color:var(--ouro);margin-bottom:1.1rem;
+}
+.olho::before,.olho::after{content:"";width:34px;height:1px;background:linear-gradient(90deg,transparent,var(--ouro))}
+.olho::after{background:linear-gradient(270deg,transparent,var(--ouro))}
+
+h2.titulo{
+  font-size:clamp(2rem,4.4vw,3.1rem);
+  margin-bottom:.55em;
+}
+.dourado{
+  background:linear-gradient(100deg,var(--ouro-escuro) 0%,var(--ouro-claro) 38%,#fff8e6 50%,var(--ouro-claro) 62%,var(--ouro-escuro) 100%);
+  -webkit-background-clip:text;background-clip:text;color:transparent;
+}
+.sub{color:var(--texto-suave);font-size:1.05rem;max-width:62ch;margin-inline:auto}
+
+/* ---------- Botão ---------- */
+.btn{
+  --h:64px;
+  position:relative;display:inline-flex;align-items:center;justify-content:center;gap:.7em;
+  min-height:var(--h);padding:0 clamp(26px,4vw,46px);
+  font-family:var(--fonte-texto);font-weight:600;font-size:clamp(.86rem,1.6vw,1rem);
+  letter-spacing:.13em;text-transform:uppercase;text-align:center;
+  color:#2a1405;border-radius:100px;border:0;cursor:pointer;overflow:hidden;
+  background:linear-gradient(135deg,#b0863a,#f7e3ae 34%,#fff6dd 50%,#f0d391 68%,#b0863a);
+  box-shadow:0 18px 40px -16px rgba(230,194,115,.7),inset 0 1px 0 rgba(255,255,255,.6);
+  transition:transform .25s cubic-bezier(.2,.9,.3,1.3),box-shadow .25s ease;
+  animation:pulsar 3.4s ease-in-out infinite;
+}
+.btn:hover{transform:translateY(-3px) scale(1.02);box-shadow:0 26px 54px -18px rgba(247,227,174,.85),inset 0 1px 0 rgba(255,255,255,.7)}
+.btn:active{transform:translateY(-1px) scale(.99)}
+.btn::after{
+  content:"";position:absolute;top:0;left:-140%;width:60%;height:100%;
+  background:linear-gradient(100deg,transparent,rgba(255,255,255,.75),transparent);
+  transform:skewX(-20deg);animation:brilhar 4.6s ease-in-out infinite;
+}
+@keyframes brilhar{0%,72%{left:-140%}92%,100%{left:150%}}
+@keyframes pulsar{0%,100%{box-shadow:0 18px 40px -16px rgba(230,194,115,.55),inset 0 1px 0 rgba(255,255,255,.6)}50%{box-shadow:0 18px 54px -14px rgba(230,194,115,.95),inset 0 1px 0 rgba(255,255,255,.6)}}
+.btn-linha{
+  background:transparent;color:var(--ouro-claro);border:1px solid rgba(230,194,115,.5);
+  box-shadow:none;animation:none;
+}
+.btn-linha:hover{background:rgba(230,194,115,.1);box-shadow:none}
+.btn-bloco{display:flex;width:min(520px,100%);margin-inline:auto}
+.selo-btn{
+  display:block;margin-top:1rem;font-size:.8rem;letter-spacing:.05em;color:var(--texto-suave);
+}
+
+/* ---------- Barra fixa ---------- */
+.barra{
+  position:fixed;top:0;left:0;right:0;z-index:60;
+  display:flex;align-items:center;justify-content:space-between;gap:1rem;
+  padding:.6rem clamp(16px,4vw,40px);
+  background:rgba(13,4,22,.72);backdrop-filter:blur(14px);
+  border-bottom:1px solid rgba(204,150,225,.14);
+  transform:translateY(-100%);transition:transform .4s ease;
+}
+.barra.visivel{transform:translateY(0)}
+.barra .marca{display:flex;align-items:center;gap:.7rem}
+.barra .marca img{width:42px;height:42px;border-radius:50%}
+.barra .marca span{font-family:var(--fonte-display);font-size:1.05rem;letter-spacing:.05em;color:var(--lilas-claro)}
+.barra .btn{--h:46px;font-size:.72rem;padding:0 22px;animation:none}
+@media(max-width:560px){.barra .marca span{display:none}}
+
+/* ---------- HERO ---------- */
+.hero{
+  position:relative;min-height:100svh;display:grid;place-items:center;
+  padding:clamp(90px,12vh,140px) 0 clamp(56px,8vh,90px);text-align:center;overflow:hidden;
+}
+.hero-fundo{position:absolute;inset:0;z-index:0;overflow:hidden}
+/* a arte original traz o título gravado no topo: recortamos essa faixa
+   e mostramos apenas a cena (silhueta + lago) atrás do texto */
+.hero-fundo img{
+  position:absolute;bottom:0;left:50%;transform:translateX(-50%);
+  width:100%;min-width:100%;height:190%;
+  object-fit:cover;object-position:50% 100%;opacity:.6;
+}
+.hero-fundo::after{
+  content:"";position:absolute;inset:0;
+  background:
+    radial-gradient(115% 70% at 50% 46%,rgba(13,4,22,.2) 0%,rgba(13,4,22,.66) 48%,var(--roxo-void) 86%),
+    linear-gradient(180deg,rgba(13,4,22,.9) 0%,rgba(21,6,32,.42) 28%,rgba(13,4,22,.96) 92%);
+}
+.hero-conteudo{position:relative;z-index:2;width:min(880px,92vw)}
+.logo-hero{
+  width:clamp(104px,15vw,146px);margin:0 auto 1.6rem;border-radius:50%;
+  box-shadow:0 0 0 1px rgba(230,194,115,.45),0 0 60px rgba(204,150,225,.45);
+  animation:respirar 6s ease-in-out infinite;
+}
+@keyframes respirar{0%,100%{transform:scale(1);box-shadow:0 0 0 1px rgba(230,194,115,.45),0 0 50px rgba(204,150,225,.35)}50%{transform:scale(1.035);box-shadow:0 0 0 1px rgba(230,194,115,.7),0 0 86px rgba(204,150,225,.6)}}
+.hero h1{
+  font-size:clamp(2.5rem,7.2vw,4.6rem);line-height:1.03;margin-bottom:.5em;
+  text-shadow:0 8px 40px rgba(0,0,0,.6);
+}
+.hero h1 em{font-style:normal;display:block}
+.hero .chamada{
+  font-size:clamp(1.05rem,2.4vw,1.35rem);color:var(--lilas-claro);
+  max-width:34ch;margin:0 auto 1.1em;font-weight:300;
+}
+.hero .apoio{color:var(--texto-suave);max-width:52ch;margin:0 auto 2.1em;font-size:1rem}
+.confianca{
+  display:flex;flex-wrap:wrap;justify-content:center;gap:.7rem 1.6rem;
+  margin-top:1.8rem;font-size:.82rem;letter-spacing:.06em;color:var(--texto-suave);
+}
+.confianca span{display:inline-flex;align-items:center;gap:.45em}
+.confianca svg{width:15px;height:15px;flex:none;color:var(--ouro)}
+.rolagem{
+  position:absolute;bottom:22px;left:50%;transform:translateX(-50%);z-index:2;
+  width:24px;height:38px;border:1px solid rgba(230,194,115,.45);border-radius:14px;
+}
+.rolagem::after{
+  content:"";position:absolute;left:50%;top:8px;width:3px;height:7px;margin-left:-1.5px;
+  border-radius:2px;background:var(--ouro);animation:descer 1.9s ease-in-out infinite;
+}
+@keyframes descer{0%{opacity:0;transform:translateY(0)}35%{opacity:1}100%{opacity:0;transform:translateY(14px)}}
+@media(max-height:720px){.rolagem{display:none}}
+
+/* ---------- Cartão base ---------- */
+.cartao{
+  background:linear-gradient(160deg,rgba(43,17,66,.72),rgba(21,6,32,.55));
+  border:var(--borda-suave);border-radius:var(--raio);
+  padding:clamp(22px,3vw,34px);
+  backdrop-filter:blur(6px);
+  transition:transform .35s ease,border-color .35s ease,box-shadow .35s ease;
+}
+.cartao:hover{transform:translateY(-5px);border-color:rgba(230,194,115,.4);box-shadow:var(--sombra-alta)}
+
+/* ---------- Seção: o que é ---------- */
+.oque{display:grid;grid-template-columns:.85fr 1.15fr;gap:clamp(30px,5vw,68px);align-items:center}
+.oque-visual{position:relative;display:grid;place-items:center}
+.oque-visual img{width:min(330px,74%);filter:drop-shadow(0 0 40px rgba(230,194,115,.4));animation:girarLeve 30s linear infinite}
+@keyframes girarLeve{0%{transform:rotate(-2deg)}50%{transform:rotate(2deg)}100%{transform:rotate(-2deg)}}
+.halo{
+  position:absolute;width:min(430px,96%);aspect-ratio:1;border-radius:50%;
+  background:radial-gradient(circle,rgba(204,150,225,.32),transparent 62%);
+  animation:respirar 7s ease-in-out infinite;
+}
+.oque-texto .destaque{
+  font-family:var(--fonte-display);font-size:clamp(1.3rem,2.6vw,1.75rem);
+  color:var(--lilas-claro);font-style:italic;line-height:1.4;margin-bottom:1.2em;
+}
+.frase-chave{
+  margin-top:1.6rem;padding:1.2rem 1.4rem;border-left:2px solid var(--ouro);
+  background:linear-gradient(90deg,rgba(230,194,115,.1),transparent);
+  border-radius:0 14px 14px 0;color:var(--lilas-claro);font-size:1rem;
+}
+@media(max-width:860px){.oque{grid-template-columns:1fr}.oque-visual{order:-1}}
+
+/* ---------- Grid "é para você" ---------- */
+.grade-voce{display:grid;grid-template-columns:repeat(auto-fit,minmax(268px,1fr));gap:16px;margin-top:2.6rem}
+.item-voce{
+  display:flex;gap:.9rem;align-items:flex-start;
+  padding:20px 22px;border-radius:16px;
+  background:linear-gradient(150deg,rgba(102,37,116,.3),rgba(21,6,32,.42));
+  border:1px solid rgba(204,150,225,.16);
+  transition:transform .3s ease,border-color .3s ease,background .3s ease;
+}
+.item-voce:hover{transform:translateY(-4px);border-color:rgba(230,194,115,.42);background:linear-gradient(150deg,rgba(102,37,116,.45),rgba(21,6,32,.5))}
+.marca-check{
+  flex:none;width:26px;height:26px;border-radius:50%;display:grid;place-items:center;margin-top:2px;
+  background:linear-gradient(135deg,var(--ouro),var(--ouro-escuro));color:#2a1405;
+}
+.marca-check svg{width:14px;height:14px}
+.item-voce p{font-size:.98rem;color:var(--texto)}
+
+/* ---------- Receber ---------- */
+.receber{display:grid;grid-template-columns:1.05fr .95fr;gap:clamp(24px,4vw,44px);margin-top:2.8rem;align-items:start}
+.lista-exercicios{list-style:none;margin:1.4rem 0 0;padding:0;display:grid;gap:.65rem}
+.lista-exercicios li{display:flex;gap:.75rem;align-items:center;font-size:1rem}
+.lista-exercicios li svg{width:18px;height:18px;flex:none;color:var(--lilas)}
+.mais{margin-top:1.1rem;font-family:var(--fonte-display);font-style:italic;font-size:1.25rem;color:var(--ouro-claro)}
+.cartao-topo{
+  display:flex;align-items:flex-start;gap:.7rem;line-height:1.25;font-family:var(--fonte-display);
+  font-size:1.4rem;color:var(--ouro-claro);margin-bottom:.2rem;
+}
+.faisca{width:22px;height:22px;flex:none;color:var(--ouro);margin-top:.28em}
+.formato{display:grid;gap:14px}
+.formato .cartao{padding:22px 24px}
+.formato h3{font-size:1.2rem;color:var(--lilas-claro);margin-bottom:.3rem;font-family:var(--fonte-texto);font-weight:500;letter-spacing:.02em}
+.formato p{font-size:.94rem;color:var(--texto-suave)}
+.beneficios-linha{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:2.4rem}
+.beneficio{
+  text-align:center;padding:26px 18px;border-radius:18px;
+  background:linear-gradient(165deg,rgba(230,194,115,.12),rgba(21,6,32,.4));
+  border:1px solid rgba(230,194,115,.28);
+}
+.beneficio svg{width:34px;height:34px;color:var(--ouro);margin:0 auto .6rem}
+.beneficio strong{display:block;font-weight:500;letter-spacing:.04em;font-size:.98rem}
+@media(max-width:860px){.receber{grid-template-columns:1fr}.beneficios-linha{grid-template-columns:1fr}}
+
+/* ---------- Transformação ---------- */
+.grade-transf{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:18px;margin-top:2.8rem}
+.transf{position:relative;padding-top:74px}
+.transf .n{
+  position:absolute;top:16px;left:clamp(22px,3vw,34px);
+  font-family:var(--fonte-display);font-size:3.2rem;line-height:1;font-weight:700;
+  background:linear-gradient(180deg,var(--ouro-claro),rgba(230,194,115,.18));
+  -webkit-background-clip:text;background-clip:text;color:transparent;
+}
+.transf p{font-size:1.02rem;color:var(--texto)}
+
+/* ---------- Por que agora ---------- */
+.faixa-razoes{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:14px;margin-top:2.4rem}
+.razao{
+  padding:22px 20px;border-radius:16px;text-align:center;font-size:.96rem;
+  background:linear-gradient(170deg,rgba(102,37,116,.34),rgba(13,4,22,.5));
+  border:1px solid rgba(204,150,225,.18);
+}
+.razao svg{width:26px;height:26px;color:var(--ouro);margin:0 auto .7rem}
+.frase-corte{
+  margin-top:clamp(38px,6vw,64px);text-align:center;
+  font-family:var(--fonte-display);font-size:clamp(1.5rem,3.6vw,2.4rem);line-height:1.3;
+}
+.frase-corte span{display:block}
+.frase-corte .b{color:var(--texto-suave)}
+
+/* ---------- Oferta ---------- */
+.oferta{position:relative}
+.oferta::before{
+  content:"";position:absolute;inset:0;
+  background:radial-gradient(60% 60% at 50% 40%,rgba(230,194,115,.14),transparent 70%);
+  pointer-events:none;
+}
+.caixa-oferta{
+  position:relative;width:min(640px,94vw);margin:2.4rem auto 0;text-align:center;
+  padding:clamp(30px,5vw,52px) clamp(22px,4vw,46px);
+  border-radius:30px;
+  background:linear-gradient(165deg,rgba(43,17,66,.92),rgba(13,4,22,.95));
+  border:1px solid rgba(230,194,115,.42);
+  box-shadow:0 40px 90px -40px rgba(230,194,115,.45),0 0 0 6px rgba(230,194,115,.05);
+  overflow:hidden;
+}
+.caixa-oferta::after{
+  content:"";position:absolute;top:-60%;left:-30%;width:70%;height:220%;
+  background:linear-gradient(100deg,transparent,rgba(255,255,255,.06),transparent);
+  transform:rotate(12deg);animation:varrer 7s ease-in-out infinite;
+}
+@keyframes varrer{0%,70%{left:-40%}100%{left:120%}}
+.tag-oferta{
+  display:inline-block;padding:.4em 1.2em;border-radius:100px;font-size:.7rem;
+  letter-spacing:.22em;text-transform:uppercase;font-weight:600;
+  background:linear-gradient(135deg,var(--ouro),var(--ouro-claro));color:#2a1405;margin-bottom:1.4rem;
+}
+.de{font-size:1rem;color:var(--texto-suave);letter-spacing:.05em}
+.de s{opacity:.75}
+.por{font-size:.86rem;letter-spacing:.24em;text-transform:uppercase;color:var(--lilas);margin:.5rem 0 .2rem}
+.preco{font-family:var(--fonte-display);font-size:clamp(3.4rem,10vw,5.2rem);line-height:1;font-weight:700;margin-bottom:.1em}
+.preco small{font-size:.32em;vertical-align:.9em;margin-right:.1em;font-weight:600}
+.parcelas{font-size:1.05rem;color:var(--lilas-claro);margin-top:.5rem}
+.parcelas b{color:var(--ouro-claro);font-weight:600}
+.relogio{display:flex;justify-content:center;gap:10px;margin:1.9rem 0 1.7rem}
+.relogio div{
+  min-width:70px;padding:12px 6px;border-radius:14px;
+  background:rgba(204,150,225,.1);border:1px solid rgba(204,150,225,.24);
+}
+.relogio b{display:block;font-family:var(--fonte-display);font-size:2rem;line-height:1;color:var(--ouro-claro);font-variant-numeric:tabular-nums}
+.relogio i{display:block;font-style:normal;font-size:.62rem;letter-spacing:.16em;text-transform:uppercase;color:var(--texto-suave);margin-top:.4rem}
+.aviso-timer{font-size:.82rem;color:var(--texto-suave);margin-top:-.6rem;margin-bottom:1.4rem}
+.pagamentos{display:flex;justify-content:center;flex-wrap:wrap;gap:.5rem 1.2rem;margin-top:1.3rem;font-size:.76rem;color:var(--texto-suave);letter-spacing:.05em}
+
+/* ---------- Bônus ---------- */
+.bonus{margin-top:clamp(48px,7vw,80px)}
+.grade-bonus{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:18px;margin-top:2.2rem}
+.cartao-bonus{position:relative;padding-top:30px}
+.fita{
+  position:absolute;top:-13px;left:50%;transform:translateX(-50%);
+  padding:.32em 1.1em;border-radius:100px;font-size:.66rem;letter-spacing:.2em;text-transform:uppercase;font-weight:600;
+  background:linear-gradient(135deg,var(--ouro-escuro),var(--ouro-claro));color:#2a1405;white-space:nowrap;
+}
+.cartao-bonus h3{font-family:var(--fonte-display);font-size:1.35rem;color:var(--ouro-claro);margin-bottom:.45rem}
+.cartao-bonus p{font-size:.95rem;color:var(--texto-suave)}
+
+/* ---------- Garantia ---------- */
+.garantia{
+  display:flex;align-items:center;gap:clamp(20px,4vw,42px);
+  width:min(780px,94vw);margin-inline:auto;
+  padding:clamp(26px,4vw,40px);border-radius:26px;
+  background:linear-gradient(140deg,rgba(102,37,116,.4),rgba(13,4,22,.6));
+  border:1px solid rgba(230,194,115,.3);
+}
+.selo{flex:none;width:clamp(96px,16vw,128px);aspect-ratio:1;display:grid;place-items:center;position:relative}
+.selo svg{width:100%;height:100%;color:var(--ouro);filter:drop-shadow(0 0 22px rgba(230,194,115,.5))}
+.selo b{position:absolute;font-family:var(--fonte-display);font-size:1.9rem;color:var(--ouro-claro);line-height:.9;text-align:center}
+.selo b i{display:block;font-style:normal;font-size:.36em;letter-spacing:.2em;text-transform:uppercase;margin-top:.25em}
+.garantia h3{font-size:clamp(1.5rem,3vw,2rem);margin-bottom:.4rem}
+.garantia p{color:var(--texto-suave);font-size:.98rem}
+@media(max-width:620px){.garantia{flex-direction:column;text-align:center}}
+
+/* ---------- FAQ ---------- */
+.faq{margin-top:2.6rem;display:grid;gap:12px}
+details{
+  border-radius:16px;border:1px solid rgba(204,150,225,.18);
+  background:linear-gradient(150deg,rgba(43,17,66,.6),rgba(13,4,22,.45));
+  overflow:hidden;transition:border-color .3s ease;
+}
+details[open]{border-color:rgba(230,194,115,.4)}
+summary{
+  list-style:none;cursor:pointer;padding:20px 58px 20px 24px;position:relative;
+  font-size:1.03rem;font-weight:400;color:var(--lilas-claro);
+}
+summary::-webkit-details-marker{display:none}
+summary::after{
+  content:"";position:absolute;right:24px;top:50%;width:11px;height:11px;
+  border-right:1.6px solid var(--ouro);border-bottom:1.6px solid var(--ouro);
+  transform:translateY(-70%) rotate(45deg);transition:transform .3s ease;
+}
+details[open] summary::after{transform:translateY(-30%) rotate(-135deg)}
+summary:hover{color:#fff}
+.resposta{padding:0 24px 22px;color:var(--texto-suave);font-size:.97rem}
+
+/* ---------- Fechamento ---------- */
+.fechamento{text-align:center;position:relative;overflow:hidden}
+.fechamento .logo-fim{width:clamp(88px,13vw,116px);margin:0 auto 1.8rem;border-radius:50%;box-shadow:0 0 50px rgba(204,150,225,.5)}
+.fechamento h2{font-size:clamp(2rem,5.4vw,3.4rem);margin-bottom:.5em}
+.rodape{
+  padding:38px 0 46px;text-align:center;font-size:.8rem;color:#7d6a8c;
+  border-top:1px solid rgba(204,150,225,.12);line-height:1.9;
+}
+.rodape strong{color:var(--lilas);font-weight:400;letter-spacing:.1em}
+
+/* ---------- CTA fixo mobile ---------- */
+.cta-mobile{
+  position:fixed;left:0;right:0;bottom:0;z-index:70;padding:10px 14px calc(10px + env(safe-area-inset-bottom));
+  background:linear-gradient(180deg,rgba(13,4,22,.4),rgba(13,4,22,.96));
+  backdrop-filter:blur(10px);transform:translateY(120%);transition:transform .4s ease;
+}
+.cta-mobile.visivel{transform:translateY(0)}
+.cta-mobile .btn{--h:54px;width:100%;font-size:.8rem}
+@media(min-width:861px){.cta-mobile{display:none}}
+@media(max-width:560px){
+  .olho{font-size:.66rem;letter-spacing:.22em}
+  .olho::before,.olho::after{display:none}
+}
+@media(max-width:440px){
+  .relogio{gap:6px}
+  .relogio div{min-width:0;flex:1;padding:11px 2px}
+  .relogio b{font-size:1.6rem}
+  .relogio i{font-size:.55rem;letter-spacing:.1em}
+  .caixa-oferta{padding-inline:18px}
+}
+@media(max-width:860px){.rodape{padding-bottom:96px}}
+
+/* ---------- Animação de entrada ---------- */
+.revelar{opacity:0;transform:translateY(26px);transition:opacity .8s ease,transform .8s cubic-bezier(.2,.8,.3,1)}
+.revelar.dentro{opacity:1;transform:none}
+
+@media (prefers-reduced-motion:reduce){
+  *{animation:none!important;transition-duration:.01ms!important}
+  .revelar{opacity:1;transform:none}
+  html{scroll-behavior:auto}
+}
+</style>
+</head>
+<body>
+
+<div class="ceu"><canvas id="estrelas"></canvas></div>
+<div class="aurora"><span></span><span></span><span></span></div>
+
+<!-- ícones reutilizáveis -->
+<svg style="display:none" aria-hidden="true">
+  <symbol id="i-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></symbol>
+  <symbol id="i-faisca" viewBox="0 0 24 24" fill="currentColor"><path d="M12 1.5l1.9 5.9a4 4 0 0 0 2.6 2.6l5.9 1.9-5.9 1.9a4 4 0 0 0-2.6 2.6L12 22.5l-1.9-5.9a4 4 0 0 0-2.6-2.6L1.5 12l6-1.9a4 4 0 0 0 2.6-2.6L12 1.5z"/></symbol>
+  <symbol id="i-raio" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2 4.5 13.5H11L10 22l8.5-11.5H12L13 2z"/></symbol>
+  <symbol id="i-escudo" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2.5 4 6v6c0 5 3.4 8.4 8 9.5 4.6-1.1 8-4.5 8-9.5V6l-8-3.5z"/><path d="m8.8 12.2 2.2 2.2 4.2-4.4"/></symbol>
+  <symbol id="i-cartao" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="2.5" y="5" width="19" height="14" rx="3"/><path d="M2.5 9.6h19M6 15h4"/></symbol>
+  <symbol id="i-raiz" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v9m0 0c0 4-3 5-4.5 7M12 12c0 4 3 5 4.5 7M12 12 8 8m4 4 4-4"/><circle cx="12" cy="3" r="1.4"/></symbol>
+  <symbol id="i-lotus" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 4c2.5 2.4 3.6 5 3.6 8S13.6 17.6 12 19c-1.6-1.4-3.6-4-3.6-7S9.5 6.4 12 4z"/><path d="M12 19c-3.4 0-6.6-1.6-8.4-4.4 2.2-1.2 4.3-1.3 6-.8M12 19c3.4 0 6.6-1.6 8.4-4.4-2.2-1.2-4.3-1.3-6-.8"/></symbol>
+  <symbol id="i-relogio" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5.2l3.4 2"/></symbol>
+  <symbol id="i-chave" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="8" cy="16" r="4"/><path d="m10.9 13.1 8-8M16.5 7.5l2.4 2.4M19 5l2 2"/></symbol>
+  <symbol id="i-infinito" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><path d="M8.5 12c0 2-1.5 3.6-3.2 3.6S2 14 2 12s1.5-3.6 3.3-3.6S8.5 10 8.5 12zm0 0c0-2 1.5-3.6 3.5-3.6s3.5 1.6 3.5 3.6-1.5 3.6-3.5 3.6S8.5 14 8.5 12zm7 0c0 2 1.5 3.6 3.2 3.6S22 14 22 12s-1.5-3.6-3.3-3.6S15.5 10 15.5 12z"/></symbol>
+  <symbol id="i-selo" viewBox="0 0 100 100" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M50 4l7.6 6.6 9.9-2.2 4.4 9.2 10 2.6-.6 10.1 8.3 5.9-5.2 8.7 5.2 8.7-8.3 5.9.6 10.1-10 2.6-4.4 9.2-9.9-2.2L50 96l-7.6-6.6-9.9 2.2-4.4-9.2-10-2.6.6-10.1-8.3-5.9 5.2-8.7-5.2-8.7 8.3-5.9-.6-10.1 10-2.6 4.4-9.2 9.9 2.2L50 4z"/><circle cx="50" cy="50" r="33" stroke-dasharray="3 5" opacity=".55"/></symbol>
+</svg>
+
+<!-- ================= BARRA FIXA ================= -->
+<header class="barra" id="barra">
+  <div class="marca">
+    <img src="assets/logo.webp" alt="Bendita Conexão" width="42" height="42">
+    <span>Bendita Conexão</span>
+  </div>
+  <a class="btn" href="https://pay.hotmart.com/T103184379H?off=4lj0n6pk&amp;hotfeature=51" target="_blank" rel="noopener">Quero acessar</a>
+</header>
+
+<main class="conteudo">
+
+<!-- ================= HERO ================= -->
+<section class="hero" id="topo">
+  <div class="hero-fundo"><img src="assets/hero.webp" alt="" fetchpriority="high"></div>
+  <div class="hero-conteudo">
+    <img class="logo-hero" src="assets/logo.webp" alt="Bendita Conexão" width="146" height="146">
+    <p class="olho">Reprogramação mental &amp; cura sistêmica</p>
+    <h1>Transforme sua vida com <em class="dourado">A Nova Frequência</em></h1>
+    <p class="chamada">Descubra o método capaz de quebrar padrões inconscientes em poucos dias.</p>
+    <p class="apoio">Reprograme sua mente na causa raiz, rompa padrões repetitivos e liberte-se do que não te pertence.</p>
+    <a class="btn" href="#oferta">Quero acessar agora</a>
+    <div class="confianca">
+      <span><svg><use href="#i-raio"/></svg> Acesso imediato</span>
+      <span><svg><use href="#i-escudo"/></svg> Garantia de 7 dias</span>
+      <span><svg><use href="#i-cartao"/></svg> Em até 9x</span>
+    </div>
+  </div>
+  <div class="rolagem" aria-hidden="true"></div>
+</section>
+
+<!-- ================= O QUE É ================= -->
+<section id="metodo">
+  <div class="wrap oque">
+    <div class="oque-visual revelar">
+      <div class="halo"></div>
+      <img src="assets/card2.webp" alt="Árvore da vida" loading="lazy">
+    </div>
+    <div class="oque-texto revelar">
+      <p class="olho">O que é</p>
+      <h2 class="titulo">A Nova <span class="dourado">Frequência</span></h2>
+      <p class="destaque">É uma jornada de cura profunda que une espiritualidade e reprogramação mental.</p>
+      <p>São poderosos exercícios de reprogramação mental que atuam no campo emocional, energético e ancestral, desfazendo padrões que se repetem, crenças limitantes e contratos inconscientes que você nem sabia que carregava.</p>
+      <p>Tudo de forma leve, guiada e transformadora.</p>
+      <p class="frase-chave">É como <b>sintonizar a sua vida em uma nova frequência</b> — e permitir que a sua energia volte ao seu estado natural: <b>livre, abundante e em paz.</b></p>
+      <p style="margin-top:2rem"><a class="btn" href="#oferta">Eu quero!</a></p>
+    </div>
+  </div>
+</section>
+
+<!-- ================= É PARA VOCÊ ================= -->
+<section>
+  <div class="wrap">
+    <div class="centro revelar">
+      <p class="olho">Identificação</p>
+      <h2 class="titulo">A Nova Frequência é <span class="dourado">para você que:</span></h2>
+    </div>
+    <div class="grade-voce">
+      <div class="item-voce revelar"><span class="marca-check"><svg><use href="#i-check"/></svg></span><p>Sente que está sempre repetindo os ciclos.</p></div>
+      <div class="item-voce revelar"><span class="marca-check"><svg><use href="#i-check"/></svg></span><p>Carrega pesos que parecem não ser seus.</p></div>
+      <div class="item-voce revelar"><span class="marca-check"><svg><use href="#i-check"/></svg></span><p>Deseja prosperar, mas percebe algum bloqueio.</p></div>
+      <div class="item-voce revelar"><span class="marca-check"><svg><use href="#i-check"/></svg></span><p>Percebe padrões familiares se repetindo na sua vida.</p></div>
+      <div class="item-voce revelar"><span class="marca-check"><svg><use href="#i-check"/></svg></span><p>Busca a solução para a raiz do problema.</p></div>
+      <div class="item-voce revelar"><span class="marca-check"><svg><use href="#i-check"/></svg></span><p>Quer liberar energia, curar feridas ancestrais e abrir novos caminhos.</p></div>
+      <div class="item-voce revelar"><span class="marca-check"><svg><use href="#i-check"/></svg></span><p>Deseja se reconectar com quem realmente é.</p></div>
+      <div class="item-voce revelar"><span class="marca-check"><svg><use href="#i-check"/></svg></span><p>Deseja vivenciar um relacionamento saudável.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= O QUE VOCÊ VAI RECEBER ================= -->
+<section id="conteudo">
+  <div class="wrap">
+    <div class="centro revelar">
+      <p class="olho">Conteúdo</p>
+      <h2 class="titulo">O que você <span class="dourado">vai receber</span></h2>
+      <p class="sub">Uma biblioteca viva de reprogramações para escolher exatamente o que sua alma precisa hoje.</p>
+    </div>
+
+    <div class="receber">
+      <div class="cartao revelar">
+        <div class="cartao-topo"><svg class="faisca"><use href="#i-faisca"/></svg> Uma coleção completa de +20 exercícios guiados</div>
+        <ul class="lista-exercicios">
+          <li><svg><use href="#i-check"/></svg> Cura da linhagem materna</li>
+          <li><svg><use href="#i-check"/></svg> Cura da linhagem paterna</li>
+          <li><svg><use href="#i-check"/></svg> Desbloqueio da prosperidade</li>
+          <li><svg><use href="#i-check"/></svg> Limpeza de crenças limitantes</li>
+          <li><svg><use href="#i-check"/></svg> Quebra de contratos cármicos</li>
+          <li><svg><use href="#i-check"/></svg> Finalização de ciclos repetitivos</li>
+          <li><svg><use href="#i-check"/></svg> Reconexão com seu propósito</li>
+          <li><svg><use href="#i-check"/></svg> Autoconfiança e identidade</li>
+          <li><svg><use href="#i-check"/></svg> Cura emocional profunda</li>
+          <li><svg><use href="#i-check"/></svg> Limpeza de energia densa</li>
+          <li><svg><use href="#i-check"/></svg> Exercícios para relacionamentos</li>
+        </ul>
+        <p class="mais">E muito mais…</p>
+      </div>
+
+      <div class="formato">
+        <div class="cartao revelar">
+          <h3><svg class="faisca" style="vertical-align:-4px"><use href="#i-faisca"/></svg> Áudios práticos, diretos e profundos</h3>
+          <p>Cada exercício foi desenhado para ir direto à causa raiz, sem enrolação.</p>
+        </div>
+        <div class="cartao revelar">
+          <h3><svg class="faisca" style="vertical-align:-4px"><use href="#i-faisca"/></svg> Acesso imediato e ilimitado</h3>
+          <p>Você recebe tudo assim que finaliza a compra e pode ouvir quantas vezes quiser.</p>
+        </div>
+        <div class="cartao revelar">
+          <h3><svg class="faisca" style="vertical-align:-4px"><use href="#i-faisca"/></svg> Acompanhamento intuitivo</h3>
+          <p>Você escolhe o tema que mais precisa no momento — o seu corpo te guia.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="beneficios-linha">
+      <div class="beneficio revelar"><svg><use href="#i-raio"/></svg><strong>Acesso Imediato</strong></div>
+      <div class="beneficio revelar"><svg><use href="#i-escudo"/></svg><strong>Garantia de 7 dias</strong></div>
+      <div class="beneficio revelar"><svg><use href="#i-cartao"/></svg><strong>Parcelamento em até 9x</strong></div>
+    </div>
+
+    <p class="centro revelar" style="margin-top:2.6rem">
+      <a class="btn btn-bloco" href="#oferta">Quero acessar a Nova Frequência já</a>
+    </p>
+  </div>
+</section>
+
+<!-- ================= TRANSFORMAÇÃO ================= -->
+<section>
+  <div class="wrap">
+    <div class="centro revelar">
+      <p class="olho">Resultados</p>
+      <h2 class="titulo">A transformação que <span class="dourado">você vai sentir</span></h2>
+    </div>
+    <div class="grade-transf">
+      <div class="cartao transf revelar"><span class="n">1</span><p>Liberação de pesos emocionais antigos herdados.</p></div>
+      <div class="cartao transf revelar"><span class="n">2</span><p>Conciliação interna com sua história e ancestralidade.</p></div>
+      <div class="cartao transf revelar"><span class="n">3</span><p>Quebra de padrões repetitivos e lealdades familiares.</p></div>
+      <div class="cartao transf revelar"><span class="n">4</span><p>Abertura dos caminhos e oportunidades.</p></div>
+      <div class="cartao transf revelar"><span class="n">5</span><p>Liberação de crenças limitantes de não merecimento e não pertencimento.</p></div>
+      <div class="cartao transf revelar"><span class="n">6</span><p>Sensação de fluidez e leveza em todas as áreas.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= POR QUE AGORA ================= -->
+<section>
+  <div class="wrap">
+    <div class="centro revelar">
+      <p class="olho">Urgência</p>
+      <h2 class="titulo">Por que fazer <span class="dourado">agora?</span></h2>
+      <p class="sub">A vida muda quando você libera e transmuta. Com a Nova Frequência, você:</p>
+    </div>
+
+    <div class="faixa-razoes">
+      <div class="razao revelar"><svg><use href="#i-raiz"/></svg>Atua na causa raiz, não apenas no sintoma.</div>
+      <div class="razao revelar"><svg><use href="#i-lotus"/></svg>Une espiritualidade, terapia sistêmica e reprogramação mental.</div>
+      <div class="razao revelar"><svg><use href="#i-relogio"/></svg>Os resultados podem ser sentidos na primeira semana.</div>
+      <div class="razao revelar"><svg><use href="#i-chave"/></svg>Você escolhe o tema de acordo com a área que necessita cura.</div>
+      <div class="razao revelar"><svg><use href="#i-infinito"/></svg>É um recurso de cura para a vida toda.</div>
+    </div>
+
+    <div class="frase-corte revelar">
+      <span class="b">Enquanto você espera, o padrão continua.</span>
+      <span class="dourado">Quando você começa, o ciclo se rompe.</span>
+    </div>
+  </div>
+</section>
+
+<!-- ================= OFERTA ================= -->
+<section class="oferta" id="oferta">
+  <div class="wrap centro">
+    <div class="revelar">
+      <p class="olho">Condição especial</p>
+      <h2 class="titulo">Comece a sua <span class="dourado">Nova Frequência</span></h2>
+    </div>
+
+    <div class="caixa-oferta revelar">
+      <span class="tag-oferta">Oferta por tempo limitado</span>
+      <p class="de">De <s>R$ 179,00</s></p>
+      <p class="por">por apenas</p>
+      <p class="preco dourado"><small>R$</small>67<small style="vertical-align:1.6em;font-size:.26em">,00</small></p>
+      <p class="parcelas">à vista <b>ou 9x de R$ 8,80</b></p>
+
+      <div class="relogio" id="relogio" aria-label="Tempo restante da oferta">
+        <div><b id="t-d">00</b><i>Dias</i></div>
+        <div><b id="t-h">00</b><i>Horas</i></div>
+        <div><b id="t-m">00</b><i>Minutos</i></div>
+        <div><b id="t-s">00</b><i>Segundos</i></div>
+      </div>
+      <p class="aviso-timer">Depois desse prazo o valor volta para R$ 179,00.</p>
+
+      <a class="btn btn-bloco" href="https://pay.hotmart.com/T103184379H?off=4lj0n6pk&amp;hotfeature=51" target="_blank" rel="noopener">Comprar agora</a>
+      <span class="selo-btn">Compra 100% segura · Ambiente Hotmart</span>
+
+      <div class="pagamentos">
+        <span>Cartão de crédito</span><span>·</span><span>Pix</span><span>·</span><span>Boleto</span><span>·</span><span>Acesso vitalício</span>
+      </div>
+    </div>
+
+    <!-- BÔNUS -->
+    <div class="bonus">
+      <div class="centro revelar">
+        <p class="olho">Bônus exclusivos</p>
+        <h2 class="titulo">Garanta o seu e receba <span class="dourado">bônus exclusivos</span></h2>
+      </div>
+      <div class="grade-bonus">
+        <div class="cartao cartao-bonus revelar">
+          <span class="fita">Bônus 01</span>
+          <h3>+3 exercícios quânticos</h3>
+          <p>Três reprogramações poderosas que vão potencializar a sua cura.</p>
+        </div>
+        <div class="cartao cartao-bonus revelar">
+          <span class="fita">Bônus 02</span>
+          <h3>Mapa de liberação de emoções</h3>
+          <p>Aprenda a transmutar suas emoções em apenas alguns minutos.</p>
+        </div>
+        <div class="cartao cartao-bonus revelar">
+          <span class="fita">Bônus 03</span>
+          <h3>Ritual do amor próprio</h3>
+          <p>Para resgatar e aumentar seu amor próprio e ser cada vez mais magnético(a).</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= GARANTIA ================= -->
+<section>
+  <div class="garantia revelar">
+    <div class="selo">
+      <svg><use href="#i-selo"/></svg>
+      <b>7<i>dias</i></b>
+    </div>
+    <div>
+      <h3 class="dourado">Garantia de 7 dias</h3>
+      <p>Você tem 7 dias de garantia incondicional. Entre, sinta, experimente cada exercício. Se por qualquer motivo não for para você, devolvemos 100% do seu investimento — sem perguntas, sem burocracia.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ================= FAQ ================= -->
+<section>
+  <div class="wrap-estreito">
+    <div class="centro revelar">
+      <p class="olho">Dúvidas</p>
+      <h2 class="titulo">Ainda está <span class="dourado">com dúvidas?</span></h2>
+    </div>
+    <div class="faq">
+      <details class="revelar">
+        <summary>Preciso seguir uma ordem específica?</summary>
+        <div class="resposta">Não. Você pode escolher livremente o exercício de acordo com a área que precisa de cura. A Nova Frequência foi criada para que o próprio corpo te guie, respeitando seu ritmo e sua necessidade emocional.</div>
+      </details>
+      <details class="revelar">
+        <summary>Posso fazer mais de um exercício por dia?</summary>
+        <div class="resposta">É recomendado que faça uma vez ao dia, durante 21 dias, para que o resultado seja evidenciado.</div>
+      </details>
+      <details class="revelar">
+        <summary>Posso fazer todos os exercícios?</summary>
+        <div class="resposta">Sim. Eles são complementares. É recomendado que você não faça todos de uma vez, para poder trabalhar com profundidade e presença cada um dos campos.</div>
+      </details>
+      <details class="revelar">
+        <summary>Em quanto tempo vou sentir resultados?</summary>
+        <div class="resposta">Muitas pessoas sentem diferenças já no primeiro dia, mas os resultados se tornam visíveis através da constância, que é o que garante a reprogramação efetiva.</div>
+      </details>
+      <details class="revelar">
+        <summary>Quem pode fazer as reprogramações?</summary>
+        <div class="resposta">Qualquer pessoa que deseje romper padrões repetitivos, trabalhar emoções profundas, desbloquear prosperidade, melhorar relações e fortalecer a autoestima.</div>
+      </details>
+      <details class="revelar">
+        <summary>Terei acesso vitalício?</summary>
+        <div class="resposta">Sim. Após a compra, você recebe acesso vitalício ao conteúdo e a todas as atualizações que forem adicionadas.</div>
+      </details>
+    </div>
+  </div>
+</section>
+
+<!-- ================= FECHAMENTO ================= -->
+<section class="fechamento">
+  <div class="wrap-estreito revelar">
+    <img class="logo-fim" src="assets/logo.webp" alt="Bendita Conexão" width="116" height="116" loading="lazy">
+    <h2>O ciclo se rompe <span class="dourado">quando você decide.</span></h2>
+    <p class="sub" style="margin-bottom:2.2rem">Dê o primeiro passo hoje e permita que a sua energia volte ao seu estado natural: livre, abundante e em paz.</p>
+    <a class="btn btn-bloco" href="https://pay.hotmart.com/T103184379H?off=4lj0n6pk&amp;hotfeature=51" target="_blank" rel="noopener">Quero fazer parte da Nova Frequência</a>
+    <span class="selo-btn">R$ 67,00 à vista ou 9x de R$ 8,80 · Garantia de 7 dias</span>
+  </div>
+</section>
+
+<footer class="rodape">
+  <strong>BENDITA CONEXÃO</strong><br>
+  A Nova Frequência · Reprogramação mental e cura sistêmica<br>
+  Todos os direitos reservados.
+</footer>
+
+</main>
+
+<div class="cta-mobile" id="ctaMobile">
+  <a class="btn" href="#oferta">Quero acessar por R$ 67</a>
+</div>
+
+<script>
+(function(){
+  "use strict";
+
+  /* ---------- Céu estrelado ---------- */
+  var canvas = document.getElementById("estrelas");
+  if (canvas && !window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+    var ctx = canvas.getContext("2d"), estrelas = [], w = 0, h = 0, dpr = Math.min(devicePixelRatio || 1, 2);
+    function medir(){
+      w = canvas.clientWidth; h = canvas.clientHeight;
+      canvas.width = w * dpr; canvas.height = h * dpr;
+      ctx.setTransform(dpr,0,0,dpr,0,0);
+      var qtd = Math.round(Math.min(160, (w*h)/9000));
+      estrelas = [];
+      for (var i=0;i<qtd;i++){
+        estrelas.push({
+          x: Math.random()*w, y: Math.random()*h,
+          r: Math.random()*1.3 + .3,
+          a: Math.random(), v: Math.random()*.014 + .004,
+          ouro: Math.random() > .68
+        });
+      }
+    }
+    function pintar(){
+      ctx.clearRect(0,0,w,h);
+      for (var i=0;i<estrelas.length;i++){
+        var e = estrelas[i];
+        e.a += e.v; if (e.a > 1 || e.a < .05) e.v *= -1;
+        ctx.globalAlpha = Math.max(.05, Math.min(1, e.a));
+        ctx.fillStyle = e.ouro ? "#e6c273" : "#ecd7f7";
+        ctx.beginPath(); ctx.arc(e.x, e.y, e.r, 0, 6.2832); ctx.fill();
+      }
+      ctx.globalAlpha = 1;
+      requestAnimationFrame(pintar);
+    }
+    medir(); pintar();
+    addEventListener("resize", medir, {passive:true});
+  }
+
+  /* ---------- Revelar ao rolar ---------- */
+  var alvos = document.querySelectorAll(".revelar");
+  if ("IntersectionObserver" in window) {
+    var obs = new IntersectionObserver(function(entradas){
+      entradas.forEach(function(en, i){
+        if (en.isIntersecting){
+          en.target.style.transitionDelay = Math.min(i*70, 280) + "ms";
+          en.target.classList.add("dentro");
+          obs.unobserve(en.target);
+        }
+      });
+    }, {threshold:.14, rootMargin:"0px 0px -60px 0px"});
+    alvos.forEach(function(el){ obs.observe(el); });
+  } else {
+    alvos.forEach(function(el){ el.classList.add("dentro"); });
+  }
+
+  /* ---------- Barra + CTA mobile ---------- */
+  var barra = document.getElementById("barra");
+  var ctaMobile = document.getElementById("ctaMobile");
+  var oferta = document.getElementById("oferta");
+  function aoRolar(){
+    var mostrar = scrollY > innerHeight * .8;
+    barra.classList.toggle("visivel", mostrar);
+    var naOferta = oferta && oferta.getBoundingClientRect().top < innerHeight && oferta.getBoundingClientRect().bottom > 0;
+    ctaMobile.classList.toggle("visivel", mostrar && !naOferta);
+  }
+  addEventListener("scroll", aoRolar, {passive:true});
+  aoRolar();
+
+  /* ---------- Contagem regressiva (24h por visitante) ---------- */
+  var DURACAO = 24*60*60*1000, CHAVE = "nf_oferta_fim";
+  var fim = parseInt(localStorage.getItem(CHAVE) || "0", 10);
+  if (!fim || isNaN(fim) || fim < Date.now()) {
+    fim = Date.now() + DURACAO;
+    try { localStorage.setItem(CHAVE, String(fim)); } catch(e){}
+  }
+  var campos = {d:document.getElementById("t-d"), h:document.getElementById("t-h"), m:document.getElementById("t-m"), s:document.getElementById("t-s")};
+  function dois(n){ return n < 10 ? "0"+n : ""+n; }
+  function tique(){
+    var resta = fim - Date.now();
+    if (resta <= 0) { resta = 0; fim = Date.now() + DURACAO; try{ localStorage.setItem(CHAVE, String(fim)); }catch(e){} }
+    var s = Math.floor(resta/1000);
+    campos.d.textContent = dois(Math.floor(s/86400));
+    campos.h.textContent = dois(Math.floor(s%86400/3600));
+    campos.m.textContent = dois(Math.floor(s%3600/60));
+    campos.s.textContent = dois(s%60);
+  }
+  tique(); setInterval(tique, 1000);
+
+  /* ---------- FAQ: abre um por vez ---------- */
+  var faqs = document.querySelectorAll(".faq details");
+  faqs.forEach(function(d){
+    d.addEventListener("toggle", function(){
+      if (d.open) faqs.forEach(function(o){ if (o !== d) o.open = false; });
+    });
+  });
+})();
+</script>
+</body>
+</html>
