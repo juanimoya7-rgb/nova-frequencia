@@ -428,15 +428,17 @@ summary:hover{color:#fff}
 @media(max-width:860px){.rodape{padding-bottom:96px}}
 
 /* ---------- Animação de entrada ---------- */
-.revelar{opacity:0;transform:translateY(26px);transition:opacity .8s ease,transform .8s cubic-bezier(.2,.8,.3,1)}
-.revelar.dentro{opacity:1;transform:none}
+/* Solo se ocultan si el JS arrancó: sin JS la página se ve completa igual */
+.js .revelar{opacity:0;transform:translateY(26px);transition:opacity .8s ease,transform .8s cubic-bezier(.2,.8,.3,1)}
+.js .revelar.dentro{opacity:1;transform:none}
 
 @media (prefers-reduced-motion:reduce){
   *{animation:none!important;transition-duration:.01ms!important}
-  .revelar{opacity:1;transform:none}
+  .js .revelar{opacity:1;transform:none}
   html{scroll-behavior:auto}
 }
 </style>
+<script>document.documentElement.className+=" js";</script>
 </head>
 <body>
 
@@ -808,6 +810,12 @@ summary:hover{color:#fff}
       });
     }, {threshold:.14, rootMargin:"0px 0px -60px 0px"});
     alvos.forEach(function(el){ obs.observe(el); });
+    /* Red de seguridad: si el observer no reaccionó en 3s, mostramos todo igual */
+    setTimeout(function(){
+      if (!document.querySelector(".revelar.dentro")) {
+        alvos.forEach(function(el){ el.classList.add("dentro"); });
+      }
+    }, 3000);
   } else {
     alvos.forEach(function(el){ el.classList.add("dentro"); });
   }
