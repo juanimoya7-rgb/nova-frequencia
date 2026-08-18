@@ -8,7 +8,14 @@
 <meta name="theme-color" content="#150620">
 <meta property="og:title" content="A Nova Frequência — Reprogramação mental e cura sistêmica">
 <meta property="og:description" content="Descubra o método capaz de quebrar padrões inconscientes em poucos dias.">
-<meta property="og:image" content="assets/hero.webp">
+<meta property="og:image" content="https://nova-frequencia.vercel.app/assets/preview.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:url" content="https://nova-frequencia.vercel.app/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Bendita Conexão">
+<meta property="og:locale" content="pt_BR">
+<meta name="twitter:card" content="summary_large_image">
 <link rel="icon" href="assets/logo.webp">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -657,7 +664,6 @@ summary:hover{color:#fff}
       <p class="parcelas">à vista <b>ou 9x de R$ 8,80</b></p>
 
       <div class="relogio" id="relogio" aria-label="Tempo restante da oferta">
-        <div><b id="t-d">00</b><i>Dias</i></div>
         <div><b id="t-h">00</b><i>Horas</i></div>
         <div><b id="t-m">00</b><i>Minutos</i></div>
         <div><b id="t-s">00</b><i>Segundos</i></div>
@@ -850,21 +856,20 @@ summary:hover{color:#fff}
   addEventListener("scroll", aoRolar, {passive:true});
   aoRolar();
 
-  /* ---------- Contagem regressiva (24h por visitante) ---------- */
-  var DURACAO = 24*60*60*1000, CHAVE = "nf_oferta_fim";
+  /* ---------- Contagem regressiva (8h por visitante) ---------- */
+  var DURACAO = 8*60*60*1000, CHAVE = "nf_oferta_fim_8h";
   var fim = parseInt(localStorage.getItem(CHAVE) || "0", 10);
   if (!fim || isNaN(fim) || fim < Date.now()) {
     fim = Date.now() + DURACAO;
     try { localStorage.setItem(CHAVE, String(fim)); } catch(e){}
   }
-  var campos = {d:document.getElementById("t-d"), h:document.getElementById("t-h"), m:document.getElementById("t-m"), s:document.getElementById("t-s")};
+  var campos = {h:document.getElementById("t-h"), m:document.getElementById("t-m"), s:document.getElementById("t-s")};
   function dois(n){ return n < 10 ? "0"+n : ""+n; }
   function tique(){
     var resta = fim - Date.now();
     if (resta <= 0) { resta = 0; fim = Date.now() + DURACAO; try{ localStorage.setItem(CHAVE, String(fim)); }catch(e){} }
     var s = Math.floor(resta/1000);
-    campos.d.textContent = dois(Math.floor(s/86400));
-    campos.h.textContent = dois(Math.floor(s%86400/3600));
+    campos.h.textContent = dois(Math.floor(s/3600));
     campos.m.textContent = dois(Math.floor(s%3600/60));
     campos.s.textContent = dois(s%60);
   }
