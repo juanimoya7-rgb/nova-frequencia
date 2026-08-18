@@ -824,12 +824,15 @@ summary:hover{color:#fff}
       });
     }, {threshold:.14, rootMargin:"0px 0px -60px 0px"});
     alvos.forEach(function(el){ obs.observe(el); });
-    /* Red de seguridad: si el observer no reaccionó en 3s, mostramos todo igual */
+    /* Red de seguridad: sonda que comprueba si el observer funciona de verdad.
+       document.body siempre intersecta al cargar, así que en un navegador sano
+       esto se dispara al instante. Si no lo hace, revelamos todo sin animación. */
+    var sondaOk = false;
+    var sonda = new IntersectionObserver(function(){ sondaOk = true; sonda.disconnect(); });
+    sonda.observe(document.body);
     setTimeout(function(){
-      if (!document.querySelector(".revelar.dentro")) {
-        alvos.forEach(function(el){ el.classList.add("dentro"); });
-      }
-    }, 3000);
+      if (!sondaOk) alvos.forEach(function(el){ el.classList.add("dentro"); });
+    }, 1800);
   } else {
     alvos.forEach(function(el){ el.classList.add("dentro"); });
   }
