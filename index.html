@@ -67,7 +67,7 @@ p:last-child{margin-bottom:0}
 .ceu canvas{width:100%;height:100%;display:block;opacity:.55}
 .aurora{position:fixed;inset:0;z-index:0;pointer-events:none;overflow:hidden}
 .aurora span{
-  position:absolute;border-radius:50%;filter:blur(90px);opacity:.32;
+  position:absolute;border-radius:50%;filter:blur(90px);opacity:.42;
   animation:flutuar 24s ease-in-out infinite;
 }
 .aurora span:nth-child(1){width:52vw;height:52vw;left:-14vw;top:-8vw;background:radial-gradient(circle,#7d2f9c,transparent 68%)}
@@ -76,6 +76,15 @@ p:last-child{margin-bottom:0}
 @keyframes flutuar{0%,100%{transform:translate3d(0,0,0) scale(1)}50%{transform:translate3d(3vw,-4vh,0) scale(1.12)}}
 
 .conteudo{position:relative;z-index:1}
+
+/* ---------- Fundos de seção ---------- */
+.com-fundo{position:relative;isolation:isolate}
+.fundo-secao{position:absolute;inset:0;z-index:-1;overflow:hidden}
+.fundo-secao img{width:100%;height:100%;object-fit:cover;opacity:.5}
+.fundo-secao::after{
+  content:"";position:absolute;inset:0;
+  background:linear-gradient(180deg,var(--roxo-void) 0%,rgba(13,4,22,.6) 24%,rgba(13,4,22,.6) 76%,var(--roxo-void) 100%);
+}
 
 /* ---------- Utilitários ---------- */
 .wrap{width:min(var(--max),92vw);margin-inline:auto}
@@ -160,7 +169,7 @@ h2.titulo{
 .hero-fundo img{
   position:absolute;bottom:0;left:50%;transform:translateX(-50%);
   width:100%;min-width:100%;height:190%;
-  object-fit:cover;object-position:50% 100%;opacity:.6;
+  object-fit:cover;object-position:50% 100%;opacity:.74;
 }
 .hero-fundo::after{
   content:"";position:absolute;inset:0;
@@ -169,20 +178,23 @@ h2.titulo{
     linear-gradient(180deg,rgba(13,4,22,.9) 0%,rgba(21,6,32,.42) 28%,rgba(13,4,22,.96) 92%);
 }
 .hero-conteudo{position:relative;z-index:2;width:min(880px,92vw)}
-.logo-hero{
-  width:clamp(104px,15vw,146px);margin:0 auto 1.6rem;border-radius:50%;
-  box-shadow:0 0 0 1px rgba(230,194,115,.45),0 0 60px rgba(204,150,225,.45);
+.marca-hero{
+  position:absolute;z-index:3;display:block;
+  top:clamp(16px,2.6vw,30px);left:clamp(16px,3.4vw,42px);
+  width:clamp(64px,8.6vw,104px);border-radius:50%;
+  box-shadow:0 0 0 1px rgba(230,194,115,.45),0 0 46px rgba(204,150,225,.45);
   animation:respirar 6s ease-in-out infinite;
 }
+.marca-hero img{border-radius:50%}
 @keyframes respirar{0%,100%{transform:scale(1);box-shadow:0 0 0 1px rgba(230,194,115,.45),0 0 50px rgba(204,150,225,.35)}50%{transform:scale(1.035);box-shadow:0 0 0 1px rgba(230,194,115,.7),0 0 86px rgba(204,150,225,.6)}}
 .hero h1{
-  font-size:clamp(2.5rem,7.2vw,4.6rem);line-height:1.03;margin-bottom:.5em;
+  font-size:clamp(2.05rem,5.5vw,3.7rem);line-height:1.1;margin-bottom:.5em;max-width:19ch;margin-inline:auto;
   text-shadow:0 8px 40px rgba(0,0,0,.6);
 }
-.hero h1 em{font-style:normal;display:block}
+.hero h1 em{font-style:normal}
 .hero .chamada{
   font-size:clamp(1.05rem,2.4vw,1.35rem);color:var(--lilas-claro);
-  max-width:34ch;margin:0 auto 1.1em;font-weight:300;
+  max-width:40ch;margin:0 auto 1.1em;font-weight:300;
 }
 .hero .apoio{color:var(--texto-suave);max-width:52ch;margin:0 auto 2.1em;font-size:1rem}
 .confianca{
@@ -302,7 +314,7 @@ h2.titulo{
 .frase-corte .b{color:var(--texto-suave)}
 
 /* ---------- Oferta ---------- */
-.oferta{position:relative}
+.oferta{position:relative;isolation:isolate}
 .oferta::before{
   content:"";position:absolute;inset:0;
   background:radial-gradient(60% 60% at 50% 40%,rgba(230,194,115,.14),transparent 70%);
@@ -474,11 +486,10 @@ summary:hover{color:#fff}
 <!-- ================= HERO ================= -->
 <section class="hero" id="topo">
   <div class="hero-fundo"><img src="assets/hero.webp" alt="" fetchpriority="high"></div>
+  <a class="marca-hero" href="#topo" aria-label="Bendita Conexão"><img src="assets/logo.webp" alt="Bendita Conexão" width="104" height="104"></a>
   <div class="hero-conteudo">
-    <img class="logo-hero" src="assets/logo.webp" alt="Bendita Conexão" width="146" height="146">
-    <p class="olho">Reprogramação mental &amp; cura sistêmica</p>
-    <h1>Transforme sua vida com <em class="dourado">A Nova Frequência</em></h1>
-    <p class="chamada">Descubra o método capaz de quebrar padrões inconscientes em poucos dias.</p>
+    <h1>Descubra o método capaz de <em class="dourado">quebrar padrões inconscientes</em> em poucos dias.</h1>
+    <p class="chamada">Transforme sua vida com A Nova Frequência</p>
     <p class="apoio">Reprograme sua mente na causa raiz, rompa padrões repetitivos e liberte-se do que não te pertence.</p>
     <a class="btn" href="#oferta">Quero acessar agora</a>
     <div class="confianca">
@@ -586,7 +597,8 @@ summary:hover{color:#fff}
 </section>
 
 <!-- ================= TRANSFORMAÇÃO ================= -->
-<section>
+<section class="com-fundo">
+  <div class="fundo-secao"><img src="assets/fundo2.webp" alt="" loading="lazy"></div>
   <div class="wrap">
     <div class="centro revelar">
       <p class="olho">Resultados</p>
@@ -604,10 +616,11 @@ summary:hover{color:#fff}
 </section>
 
 <!-- ================= POR QUE AGORA ================= -->
-<section>
+<section class="com-fundo">
+  <div class="fundo-secao"><img src="assets/fundo1.jpg" alt="" loading="lazy"></div>
   <div class="wrap">
     <div class="centro revelar">
-      <p class="olho">Urgência</p>
+      <p class="olho">Cura profunda</p>
       <h2 class="titulo">Por que fazer <span class="dourado">agora?</span></h2>
       <p class="sub">A vida muda quando você libera e transmuta. Com a Nova Frequência, você:</p>
     </div>
@@ -629,6 +642,7 @@ summary:hover{color:#fff}
 
 <!-- ================= OFERTA ================= -->
 <section class="oferta" id="oferta">
+  <div class="fundo-secao"><img src="assets/fundo2.webp" alt="" loading="lazy"></div>
   <div class="wrap centro">
     <div class="revelar">
       <p class="olho">Condição especial</p>
