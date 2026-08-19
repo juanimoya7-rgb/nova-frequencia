@@ -168,45 +168,80 @@ h2.titulo{
 /* ---------- HERO ---------- */
 .hero{
   position:relative;min-height:100svh;display:grid;place-items:center;
-  padding:clamp(90px,12vh,140px) 0 clamp(56px,8vh,90px);text-align:center;overflow:hidden;
+  padding:clamp(140px,19vh,172px) 0 clamp(56px,8vh,90px);text-align:center;overflow:hidden;
 }
 .hero-fundo{position:absolute;inset:0;z-index:0;overflow:hidden}
 /* a arte original traz o título gravado no topo: recortamos essa faixa
    e mostramos apenas a cena (silhueta + lago) atrás do texto */
 .hero-fundo img{
   position:absolute;bottom:0;left:50%;transform:translateX(-50%);
-  width:100%;min-width:100%;height:190%;
-  object-fit:cover;object-position:50% 100%;opacity:.74;
+  width:100%;min-width:100%;height:170%;
+  object-fit:cover;object-position:50% 100%;opacity:1;
 }
 .hero-fundo::after{
   content:"";position:absolute;inset:0;
   background:
-    radial-gradient(115% 70% at 50% 46%,rgba(13,4,22,.2) 0%,rgba(13,4,22,.66) 48%,var(--roxo-void) 86%),
-    linear-gradient(180deg,rgba(13,4,22,.9) 0%,rgba(21,6,32,.42) 28%,rgba(13,4,22,.96) 92%);
+    radial-gradient(125% 82% at 50% 54%,transparent 0%,rgba(13,4,22,.22) 52%,rgba(13,4,22,.78) 86%,var(--roxo-void) 99%),
+    linear-gradient(180deg,rgba(13,4,22,.62) 0%,rgba(13,4,22,.06) 24%,rgba(13,4,22,.06) 58%,rgba(13,4,22,.9) 93%,var(--roxo-void) 100%);
 }
 .hero-conteudo{position:relative;z-index:2;width:min(880px,92vw)}
+/* onda de frequência que parte dos chakras da figura (52.4% da altura do hero) */
+.onda{
+  position:absolute;left:50%;top:52.4%;z-index:1;pointer-events:none;
+  width:min(128vw,1020px);aspect-ratio:1;transform:translate(-50%,-50%);
+}
+.onda span{
+  position:absolute;inset:0;border-radius:50%;opacity:0;
+  border:1px solid rgba(230,194,115,.5);
+  box-shadow:0 0 26px rgba(230,194,115,.16),inset 0 0 26px rgba(230,194,115,.1);
+  animation:pulsoOnda 7s cubic-bezier(.16,.6,.3,1) infinite;
+}
+.onda span:nth-child(2){animation-delay:1.75s;border-color:rgba(204,150,225,.5);box-shadow:0 0 26px rgba(204,150,225,.18),inset 0 0 26px rgba(204,150,225,.1)}
+.onda span:nth-child(3){animation-delay:3.5s}
+.onda span:nth-child(4){animation-delay:5.25s;border-color:rgba(204,150,225,.5);box-shadow:0 0 26px rgba(204,150,225,.18),inset 0 0 26px rgba(204,150,225,.1)}
+@keyframes pulsoOnda{
+  0%{transform:scale(.06);opacity:0}
+  10%{opacity:.9}
+  70%{opacity:.28}
+  100%{transform:scale(1);opacity:0}
+}
 .marca-hero{
   position:absolute;z-index:3;display:block;
-  top:clamp(16px,2.6vw,30px);left:clamp(16px,3.4vw,42px);
-  width:clamp(64px,8.6vw,104px);border-radius:50%;
-  box-shadow:0 0 0 1px rgba(230,194,115,.45),0 0 46px rgba(204,150,225,.45);
-  animation:respirar 6s ease-in-out infinite;
+  top:clamp(30px,5.2vh,56px);left:50%;margin-left:0;
+  width:clamp(62px,7.6vw,86px);border-radius:50%;
+  box-shadow:0 0 0 1px rgba(230,194,115,.5),0 0 44px rgba(204,150,225,.5);
+  transform:translateX(-50%);
+  animation:respirarLogo 6s ease-in-out infinite;
 }
 .marca-hero img{border-radius:50%}
 @keyframes respirar{0%,100%{transform:scale(1);box-shadow:0 0 0 1px rgba(230,194,115,.45),0 0 50px rgba(204,150,225,.35)}50%{transform:scale(1.035);box-shadow:0 0 0 1px rgba(230,194,115,.7),0 0 86px rgba(204,150,225,.6)}}
+@keyframes respirarLogo{0%,100%{transform:translateX(-50%) scale(1);box-shadow:0 0 0 1px rgba(230,194,115,.45),0 0 50px rgba(204,150,225,.4)}50%{transform:translateX(-50%) scale(1.045);box-shadow:0 0 0 1px rgba(230,194,115,.75),0 0 88px rgba(204,150,225,.65)}}
 .hero h1{
   font-size:clamp(2.05rem,5.5vw,3.7rem);line-height:1.1;margin-bottom:.5em;max-width:19ch;margin-inline:auto;
-  text-shadow:0 8px 40px rgba(0,0,0,.6);
+  text-shadow:0 1px 3px rgba(0,0,0,.95),0 3px 20px rgba(0,0,0,.85),0 10px 48px rgba(0,0,0,.7);
 }
 .hero h1 em{font-style:normal}
-.hero .chamada{
-  font-size:clamp(1.05rem,2.4vw,1.35rem);color:var(--lilas-claro);
-  max-width:40ch;margin:0 auto 1.1em;font-weight:300;
+/* o dourado é um degradê recortado na letra: uma text-shadow pintaria POR CIMA
+   dele e o escureceria. Usamos drop-shadow, que contorna o resultado já composto. */
+.hero h1 em.dourado{
+  background:linear-gradient(100deg,#e9cb8d 0%,#fae9bd 30%,#fffaf0 50%,#fae9bd 70%,#e9cb8d 100%);
+  -webkit-background-clip:text;background-clip:text;
+  text-shadow:none;
+  filter:drop-shadow(0 1px 3px rgba(0,0,0,.95)) drop-shadow(0 3px 14px rgba(0,0,0,.85));
 }
-.hero .apoio{color:var(--texto-suave);max-width:52ch;margin:0 auto 2.1em;font-size:1rem}
+.hero .chamada{
+  font-size:clamp(1.08rem,2.5vw,1.4rem);color:#fff;
+  max-width:40ch;margin:0 auto 1.1em;font-weight:400;
+  text-shadow:0 0 5px rgba(0,0,0,.95),0 0 14px rgba(0,0,0,.9),0 2px 5px rgba(0,0,0,.95);
+}
+.hero .apoio{
+  color:#e9dcf4;max-width:52ch;margin:0 auto 2.1em;font-size:1.02rem;
+  text-shadow:0 0 5px rgba(0,0,0,.95),0 0 14px rgba(0,0,0,.9),0 2px 5px rgba(0,0,0,.95);
+}
 .confianca{
   display:flex;flex-wrap:wrap;justify-content:center;gap:.7rem 1.6rem;
-  margin-top:1.8rem;font-size:.82rem;letter-spacing:.06em;color:var(--texto-suave);
+  margin-top:1.8rem;font-size:.84rem;letter-spacing:.06em;color:#e3d5ef;
+  text-shadow:0 0 5px rgba(0,0,0,.95),0 0 12px rgba(0,0,0,.9),0 2px 5px rgba(0,0,0,.95);
 }
 .confianca span{display:inline-flex;align-items:center;gap:.45em}
 .confianca svg{width:15px;height:15px;flex:none;color:var(--ouro)}
@@ -494,6 +529,7 @@ summary:hover{color:#fff}
 <section class="hero" id="topo">
   <div class="hero-fundo"><img src="assets/hero.webp" alt="" fetchpriority="high"></div>
   <a class="marca-hero" href="#topo" aria-label="Bendita Conexão"><img src="assets/logo.webp" alt="Bendita Conexão" width="104" height="104"></a>
+  <div class="onda" aria-hidden="true"><span></span><span></span><span></span><span></span></div>
   <div class="hero-conteudo">
     <h1>Descubra o método capaz de <em class="dourado">quebrar padrões inconscientes</em> em poucos dias.</h1>
     <p class="chamada">Transforme sua vida com A Nova Frequência</p>
